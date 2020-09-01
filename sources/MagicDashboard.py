@@ -15,6 +15,7 @@ import FlashCard
 
 import Lesson_List_Display
 import MagicEditWizard
+import magic_ninja
 import Timer_Display
 import assessment_viewer
 
@@ -157,7 +158,7 @@ class MagicDashboard(tk.Frame):
         self.image_lessons = PhotoImage(file="../images/books.png")
         self.lessons_header_label = tk.Label(self.lessons_group_frame, compound=tk.LEFT, image=self.image_lessons,
                                              borderwidth=3, highlightcolor="gray18", anchor=tk.W,
-                                             text=" Lessons", font=("Helvetica", 14, 'bold'),
+                                             text="Mini Lessons", font=("Helvetica", 14, 'bold'),
                                              background=BOX_BACKGROUND_COLOR, foreground=BOX_FOREGROUND_COLOR)
         self.lessons_header_label.grid(row=0, columnspan=3, sticky=tk.NSEW)
         self.lessons_image_scroll_frame = tk.Frame(self.lessons_group_frame,
@@ -179,17 +180,17 @@ class MagicDashboard(tk.Frame):
                                       command=self.lessons_list, style="dashboxbutton.TButton")
         self.create_label = tk.Label(self.lessons_group_frame,
                                      borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=20,
-                                     text="Create a New Lesson",
+                                     text="Create Mini Lesson",
                                      font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                      foreground=BOX_FOREGROUND_COLOR)
         self.edit_label = tk.Label(self.lessons_group_frame,
                                    borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=20,
-                                   text="Edit your Lessons",
+                                   text="Edit Mini Lesson",
                                    font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                    foreground=BOX_FOREGROUND_COLOR)
         self.lessons_label = tk.Label(self.lessons_group_frame,
                                       borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=20,
-                                      text="List all Lessons",
+                                      text="List Mini Lessons",
                                       font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                       foreground=BOX_FOREGROUND_COLOR)
         self.create_label.grid(row=2, column=1, pady=5)
@@ -341,11 +342,10 @@ class MagicDashboard(tk.Frame):
         launch_Create = create_explainer_content.MagicWizard(self)
         launch_Create.geometry("1400x800+20+20")
 
-    def launch_timer(self):
-        launch_timer = Timer_Display.TimerDisplay(self)
-        launch_timer.resizable(width=False,height=False)
-        launch_timer.attributes("-topmost", True)
-        launch_timer.geometry("240x250+20+20")
+    def launch_Ninja(self):
+        launch_Ninja = magic_ninja.MagicNinja(self)
+
+        launch_Ninja.geometry("1400x800+20+20")
 
     def tools_frame_create(self):
         logger.info("Entering Tools Frame Create")
@@ -440,20 +440,20 @@ class MagicDashboard(tk.Frame):
 
         self.play_label = tk.Label(self.flash_group_frame,
                                     borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=25,
-                                    text="Lesson for your Class",
+                                    text="Mini Lesson Class",
                                     font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                     foreground=BOX_FOREGROUND_COLOR)
         self.cards_label = tk.Label(self.flash_group_frame,
                                    borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=25,
-                                   text="A game of Flashcards",
+                                   text="Flashcards",
                                    font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                    foreground=BOX_FOREGROUND_COLOR)
-        self.timer_button = ttk.Button(self.flash_group_frame, text="Timer",
+        self.Ninja_button = ttk.Button(self.flash_group_frame, text="Play",
                                                   width=8,
-                                                  command=self.launch_timer, style="dashboxbutton.TButton")
-        self.timer_label = tk.Label(self.flash_group_frame,
+                                                  command=self.launch_Ninja, style="dashboxbutton.TButton")
+        self.Ninja_label = tk.Label(self.flash_group_frame,
                                    borderwidth=3, highlightcolor="gray18", anchor=tk.W, width=25,
-                                   text="Launch Timer",
+                                   text="Sequence Ninja",
                                    font=("Helvetica", 10, 'bold'), background=BOX_BACKGROUND_COLOR,
                                    foreground=BOX_FOREGROUND_COLOR)
         self.play_label.grid(row=2, column=0, pady=5)
@@ -462,8 +462,8 @@ class MagicDashboard(tk.Frame):
         self.cards_label.grid(row=3, column=0, pady=5)
         self.cards_button.grid(row=3, column=1, pady=5)
 
-        self.timer_label.grid(row=4,column=0,pady=5)
-        self.timer_button.grid(row=4,column=1,pady=5)
+        self.Ninja_label.grid(row=4,column=0,pady=5)
+        self.Ninja_button.grid(row=4,column=1,pady=5)
 
     def star_frame_create(self):
         logger.info("Entering Starts Frame Create")
