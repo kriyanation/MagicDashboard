@@ -328,7 +328,7 @@ class MagicDashboard(tk.Frame):
 
     def launch_player(self):
         launch_player = magiccontainer.MagicApplication(self)
-        launch_player.geometry("1500x900+120+20")
+        launch_player.geometry(str(self.winfo_screenwidth())+"x"+str(self.winfo_screenheight())+"+0+0")
 
     def launch_pdf_notes(self):
         launch_notes = snapshot_view.SnapshotView(self)
@@ -336,7 +336,7 @@ class MagicDashboard(tk.Frame):
 
     def lessons_list(self):
         launch_lessonlist = Lesson_List_Display.MagicLessonList(self)
-        launch_lessonlist.geometry("1400x850+20+20")
+        launch_lessonlist.geometry(str(self.winfo_screenwidth())+"x"+str(self.winfo_screenheight())+"+0+0")
 
     def create_lesson(self):
         launch_Create = create_explainer_content.MagicWizard(self)
@@ -345,7 +345,7 @@ class MagicDashboard(tk.Frame):
     def launch_Ninja(self):
         launch_Ninja = magic_ninja.MagicNinja(self)
 
-        launch_Ninja.geometry("1400x800+20+20")
+        launch_Ninja.geometry(str(self.winfo_screenwidth()) + "x" + str(self.winfo_screenheight()) + "+0+0")
 
     def tools_frame_create(self):
         logger.info("Entering Tools Frame Create")
